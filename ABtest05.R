@@ -194,7 +194,22 @@ cat("F =", s[1, "F value"],
     " p =", s[1, "Pr(>F)"], "\n")
 
 # → 3広告の平均滞在時間に差があるかを検定できる
+# 演習課題
+boxplot(
+  y ~ factor(group),
+  names = c("A", "B", "C", "D"),
+  ylab = "滞在時間（秒）",
+  main = "動画広告ごとの滞在時間（Boxplot）"
+)
 
+# 分散分析（ANOVA）
+fit <- aov(y ~ factor(group))
+s <- summary(fit)[[1]]
+
+cat(
+  "F = ", s[1, "F value"],
+  "  p = ", s[1, "Pr(>F)"], "\n"
+)
 
 ############################################################
 # 以上：ABtest05 の全コードを完全収録！
